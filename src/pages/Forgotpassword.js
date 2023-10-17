@@ -10,7 +10,7 @@ const Forgotpassword = () => {
       <br />
       <br />
       <div className="my-5 w-50 bg-white rounded-3 mx-auto p-4">
-        <h4 className='text-center'>Forgot Password</h4>
+        <h4 className='text-center title'>Forgot Password</h4>
         <p className='text-center'>Please enter your register email to reset password</p>
         <form action="">
           <CustomInput type="text" label="Email Address" id="email" />

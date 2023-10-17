@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { Layout, Menu, Button, theme } from 'antd';
 import { AiOutlineDashboard, AiOutlineUser, AiOutlineBgColors, AiOutlinePicRight, AiOutlinePicLeft } from 'react-icons/ai'
 import { BiCategoryAlt } from 'react-icons/bi'
@@ -129,16 +129,28 @@ const MainLayout = () => {
           />
           <div className="d-flex gap-4 align-items-center">
             <div className='position-relative'>
-              <IoIosNotifications className='fs-4'/>
+              <IoIosNotifications className='fs-4' />
               <span className='badge bg-warning rounded-circle p-1 position-absolute'>3</span>
             </div>
             <div className='d-flex gap-3 align-items-center'>
               <div>
                 <img src={avatar} alt="avatar" width="32" height="32" />
               </div>
-              <div>
+              <div role='button' id="dropdownMenuLink" data-bs-toggle='dropdown' aria-expanded='false'>
                 <h5 className='mb-0'>Gia Minh</h5>
                 <p className='mb-0'>vogiaminh0802@gmail.com</p>
+              </div>
+              <div className="dropdown-menu" aria-labelledby='dropdownMenuLink'>
+                <li>
+                  <Link className='dropdown-item py-1 mb-1' style={{ height: "auto", lineHeight: "20px" }} to='/'>
+                    View Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link className='dropdown-item py-1 mb-1' style={{ height: "auto", lineHeight: "20px" }} to='/'>
+                    Signout
+                  </Link>
+                </li>
               </div>
             </div>
           </div>

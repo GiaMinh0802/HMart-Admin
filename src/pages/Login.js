@@ -11,7 +11,7 @@ const Login = () => {
       <br />
       <br />
       <div className="my-5 w-50 bg-white rounded-3 mx-auto p-4">
-        <h4 className='text-center'>Login</h4>
+        <h4 className='text-center title'>Login</h4>
         <p className='text-center'>Login to your account to continue</p>
         <form action="">
           <CustomInput type="text" label="Email Address" id="email" />

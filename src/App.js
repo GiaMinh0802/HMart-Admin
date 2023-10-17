@@ -13,6 +13,9 @@ import CategoryList from './pages/CategoryList';
 import BrandList from './pages/BrandList';
 import ProductList from './pages/ProductList';
 import AddProduct from './pages/AddProduct';
+import AddColor from './pages/AddColor';
+import AddCategory from './pages/AddCategory';
+import AddBrand from './pages/AddBrand';
 
 function App() {
   return (
@@ -26,9 +29,16 @@ function App() {
           <Route path='enquiries' element={<Enquiries />} />
           <Route path='orders' element={<Orders />} />
           <Route path='customers' element={<Customers />} />
+
           <Route path='list-color' element={<ColorList />} />
+          <Route path='color' element={<AddColor />} />
+
           <Route path='list-category' element={<CategoryList />} />
+          <Route path='category' element={<AddCategory />} />
+
           <Route path='list-brand' element={<BrandList />} />
+          <Route path='brand' element={<AddBrand />} />
+
           <Route path='list-product' element={<ProductList />} />
           <Route path='product' element={<AddProduct />} />
         </Route>
