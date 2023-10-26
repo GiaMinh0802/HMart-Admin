@@ -6,13 +6,14 @@ import * as Yup from 'yup'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../features/auth/authSlice'
 
+let schema = Yup.object().shape({
+  email: Yup.string().email("Email should be valid").required("Email is required"),
+  password: Yup.string().required("Password is required"),
+})
+
 const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  let schema = Yup.object().shape({
-    email: Yup.string().email("Email should be valid").required("Email is required"),
-    password: Yup.string().required("Password is required"),
-  })
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -23,16 +24,15 @@ const Login = () => {
       dispatch(login(values))
     }
   })
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.auth
-  )
+  const authState = useSelector((state) => state)
+  const { user, isLoading, isError, isSuccess, message } = authState.auth
   useEffect(() => {
     if (isSuccess) {
       navigate("admin")
     } else {
       navigate("")
     }
-  }, [user, isLoading, isError, isSuccess, message])
+  }, [user, isLoading, isError, isSuccess])
 
   return (
     <div className='py-5' style={{ background: "#ffd333", minHeight: "100vh" }}>
@@ -44,6 +44,9 @@ const Login = () => {
       <div className="my-5 w-50 bg-white rounded-3 mx-auto p-4">
         <h4 className='text-center title'>Login</h4>
         <p className='text-center'>Login to your account to continue</p>
+        <div className="error text-center">
+          {message.message === "Rejected" ? "You are not an Admin" : ""}
+        </div>
         <form action="" onSubmit={formik.handleSubmit}>
           <CustomInput
             type="text"
