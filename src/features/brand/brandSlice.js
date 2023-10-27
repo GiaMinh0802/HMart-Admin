@@ -49,7 +49,7 @@ export const deleteABrand = createAsyncThunk("brand/delete-brand", async (id, th
     }
 })
 
-export const resetState = createAction("Reset_all");
+export const resetState = createAction("ResetAll");
 
 export const brandSlice = createSlice({
     name: "brands",

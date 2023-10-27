@@ -4,7 +4,8 @@ import { BiEdit } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getCategories } from "../features/category/categorySlice";
+import { getCategories, deleteACategory, resetState } from "../features/category/categorySlice";
+import CustomModal from "../components/CustomModal";
 
 const columns = [
     {
@@ -29,15 +30,18 @@ const CategoryList = () => {
     const showModal = (e) => {
         setOpen(true);
         setpCatId(e);
-    };
+    }
 
     const hideModal = () => {
         setOpen(false);
-    };
-    const dispatch = useDispatch();
+    }
+
+    const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getCategories());
-    }, []);
+        dispatch(resetState())
+        dispatch(getCategories())
+    }, [])
+
     const categorystate = useSelector((state) => state.category.categories);
     const data1 = [];
     for (let i = 0; i < categorystate.length; i++) {
@@ -62,12 +66,29 @@ const CategoryList = () => {
             ),
         });
     }
+
+    const deleteCategory = (e) => {
+        dispatch(deleteACategory(e))
+        setOpen(false);
+        setTimeout(() => {
+            dispatch(getCategories())
+        }, 100);
+    }
+
     return (
         <div>
             <h3 className='mb-4 title'>Categories</h3>
             <div>
                 <Table columns={columns} dataSource={data1} />
             </div>
+            <CustomModal
+                hideModal={hideModal}
+                open={open}
+                performAction={() => {
+                    deleteCategory(CatId);
+                }}
+                title="Are you sure you want to delete this Category?"
+            />
         </div>
     )
 }

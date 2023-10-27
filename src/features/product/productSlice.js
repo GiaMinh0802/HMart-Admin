@@ -25,7 +25,7 @@ export const createProducts = createAsyncThunk("product/create-product", async (
     }
 })
 
-export const resetState = createAction("Reset_all")
+export const resetState = createAction("ResetAll")
 
 export const productSlice = createSlice({
     name: "products",
