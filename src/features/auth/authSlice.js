@@ -12,7 +12,11 @@ const initialState = {
 }
 
 export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
-    return await authService.login(user)
+    try {
+        return await authService.login(user)
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error)
+    }
 })
 
 export const authSlice = createSlice({

@@ -4,6 +4,8 @@ import { Layout, Menu, Button, theme } from 'antd';
 import { AiOutlineDashboard, AiOutlineUser, AiOutlineBgColors, AiOutlinePicRight, AiOutlinePicLeft } from 'react-icons/ai'
 import { BiCategoryAlt } from 'react-icons/bi'
 import { BsCartPlus, BsCart, BsFileEarmark, BsFileEarmarkPlus, BsBoxes } from 'react-icons/bs'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { MdOutlineLibraryBooks } from 'react-icons/md'
 import { FaClipboardList } from 'react-icons/fa'
 import { IoIosNotifications } from 'react-icons/io'
@@ -163,6 +165,17 @@ const MainLayout = () => {
             background: colorBgContainer,
           }}
         >
+          <ToastContainer
+            position="top-right"
+            autoClose={250}
+            hideProgressBar={false}
+            newestOnTop={true}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            theme="light"
+          />
           <Outlet />
         </Content>
       </Layout>
