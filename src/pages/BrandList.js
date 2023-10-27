@@ -3,8 +3,9 @@ import { Table } from "antd"
 import { BiEdit } from 'react-icons/bi'
 import { AiFillDelete } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
-import { getBrands } from '../features/brand/brandSlice';
-import { Link } from "react-router-dom";
+import { getBrands, deleteABrand, resetState } from '../features/brand/brandSlice'
+import { Link } from "react-router-dom"
+import CustomModal from "../components/CustomModal"
 
 const columns = [
     {
@@ -35,6 +36,7 @@ const BrandList = () => {
     };
     const dispatch = useDispatch();
     useEffect(() => {
+        dispatch(resetState())
         dispatch(getBrands());
     }, []);
     const brandState = useSelector((state) => state.brand.brands);
@@ -61,12 +63,27 @@ const BrandList = () => {
             ),
         })
     }
+    const deleteBrand = (e) => {
+        dispatch(deleteABrand(e))
+        setOpen(false)
+        setTimeout(() => {
+            dispatch(getBrands())
+        }, 100)
+    }
     return (
         <div>
             <h3 className='mb-4 title'>Brands</h3>
             <div>
                 <Table columns={columns} dataSource={data1} />
             </div>
+            <CustomModal
+                hideModal={hideModal}
+                open={open}
+                performAction={() => {
+                    deleteBrand(brandId);
+                }}
+                title="Are you sure you want to delete this brand?"
+            />
         </div>
     )
 }

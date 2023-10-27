@@ -17,14 +17,13 @@ export const getProducts = createAsyncThunk('product/get-products', async (thunk
     }
 })
 
-export const createProducts = createAsyncThunk("product/create-products", async (productData, thunkAPI) => {
+export const createProducts = createAsyncThunk("product/create-product", async (productData, thunkAPI) => {
     try {
         return await productService.createProduct(productData)
     } catch (error) {
         return thunkAPI.rejectWithValue(error)
     }
-}
-)
+})
 
 export const resetState = createAction("Reset_all")
 
