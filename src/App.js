@@ -16,6 +16,8 @@ import AddProduct from './pages/AddProduct';
 import AddColor from './pages/AddColor';
 import AddCategory from './pages/AddCategory';
 import AddBrand from './pages/AddBrand';
+import ViewEnquiry from "./pages/ViewEnquiry";
+import ViewOrder from "./pages/ViewOrder";
 
 function App() {
   return (
@@ -26,8 +28,13 @@ function App() {
         <Route path='/reset-password' element={<Resetpassword />} />
         <Route path='/admin' element={<MainLayout />}>
           <Route index element={<Dashboard />} />
+
           <Route path='enquiries' element={<Enquiries />} />
+          <Route path='enquiries/:id' element={<ViewEnquiry />} />
+
           <Route path='orders' element={<Orders />} />
+          <Route path='order/:id' element={<ViewOrder />} />
+
           <Route path='customers' element={<Customers />} />
 
           <Route path='list-color' element={<ColorList />} />

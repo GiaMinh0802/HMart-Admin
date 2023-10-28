@@ -7,8 +7,14 @@ const getOrders = async () => {
     return response.data
 }
 
+const getOrder = async (id) => {
+    const response = await axios.get(`${base_url}user/order/${id}`, config)
+    return response.data
+}
+
 const orderService = {
-    getOrders
+    getOrders,
+    getOrder
 }
 
 export default orderService
