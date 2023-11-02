@@ -45,7 +45,7 @@ export const resetState = createAction("ResetAll")
 
 export const enquirySlice = createSlice({
     name: "enquiries",
-    initialState,
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder

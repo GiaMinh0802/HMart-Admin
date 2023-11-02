@@ -19,7 +19,7 @@ export const getUsers = createAsyncThunk('customer/get-customers', async (thunkA
 
 export const customerSlice = createSlice({
     name: "users",
-    initialState,
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder

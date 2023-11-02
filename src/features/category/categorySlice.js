@@ -54,7 +54,7 @@ export const resetState = createAction("RevertAll")
 
 export const categorySlice = createSlice({
     name: "categories",
-    initialState,
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder

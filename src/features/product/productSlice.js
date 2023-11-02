@@ -29,7 +29,7 @@ export const resetState = createAction("ResetAll")
 
 export const productSlice = createSlice({
     name: "products",
-    initialState,
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder

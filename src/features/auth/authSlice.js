@@ -21,7 +21,7 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
 
 export const authSlice = createSlice({
     name: "auth",
-    initialState,
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder

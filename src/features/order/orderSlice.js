@@ -28,7 +28,7 @@ export const getOrder = createAsyncThunk("order/get-order", async (id, thunkAPI)
 
 export const orderSlice = createSlice({
     name: "orders",
-    initialState,
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder

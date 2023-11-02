@@ -30,7 +30,7 @@ const initialState = {
 };
 export const uploadSlice = createSlice({
     name: "imaegs",
-    initialState,
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder

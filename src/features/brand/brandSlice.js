@@ -53,7 +53,7 @@ export const resetState = createAction("ResetAll");
 
 export const brandSlice = createSlice({
     name: "brands",
-    initialState,
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder

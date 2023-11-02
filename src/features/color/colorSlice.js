@@ -53,7 +53,7 @@ export const resetState = createAction("ResetAll")
 
 export const colorSlice = createSlice({
     name: "colors",
-    initialState,
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
