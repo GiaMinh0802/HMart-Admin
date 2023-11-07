@@ -52,9 +52,9 @@ const ViewOrder = () => {
             key: i + 1,
             name: orderState[i].product.title,
             brand: orderState[i].product.brand,
-            count: orderState[i].count,
+            count: orderState[i].quantity,
             price: orderState[i].product.price,
-            color: orderState[i].product.color,
+            color: orderState[i].color,
             date: orderState[i].product.createdAt
         })
     }
